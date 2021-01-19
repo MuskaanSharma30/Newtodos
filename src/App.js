@@ -135,6 +135,7 @@ import { Component } from 'react'
 import DisplayTodos from './components/DisplayTodos'
 import FilterButtons from './components/FilterButtons'
 import TodoItems from "./components/TodoItems"
+import "./App.css"
 
 export class App extends Component {
 
@@ -180,7 +181,7 @@ ToggleTodo = (id) => {
           }
         }
         else{
-          return{item}
+          return item
           
         }
       })
@@ -198,25 +199,28 @@ FilterTodo = (filter) => {
 
 
   render() {
-  //   var NewTodo = []
-  //   if(this.state.filter === "all")
-  //   {
-  //     NewTodo = this.state.todos
-  //   }
-  //   else if(this.state.filter ==="complete")
-  //   {
-  //     NewTodo = this.state.todos.filter(item => item.status)
-  //   }
-  //   else if(this.state.filter === "active")
-  //   {
-  //     NewTodo = this.state.todos.filter(item => !item.status)
-  //   }
+     var NewTodo = []
+     if(this.state.filter === "all")
+     {
+       NewTodo = this.state.todos
+     }
+     else if(this.state.filter ==="complete")
+     {
+       NewTodo = this.state.todos.filter(item => item.status)
+     }
+     else if(this.state.filter === "active")
+     {
+      NewTodo = this.state.todos.filter(item => !item.status)
+    }
     return (
-      <div>
+      <div  className = "align3">
         <TodoItems
           SendTodo = {this.TodoAdd} />
+            <FilterButtons 
+            Filter = {this.FilterTodo}
+          />
           {
-            this.state.todos.map((item) => {
+           NewTodo.map((item) => {
               return(
                 <DisplayTodos
                   key = {item.id}
@@ -229,9 +233,7 @@ FilterTodo = (filter) => {
             })
          
           }
-          {/* <FilterButtons 
-            Filter = {this.FilterTodo}
-          /> */}
+        
       </div>
     )
   }

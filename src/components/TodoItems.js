@@ -88,6 +88,7 @@
 import {useState} from "react"
 import {v4 as uuidv4} from "uuid"
 
+
 const TodoItems = (props) => {
 
 const [data, setData] = useState("")
@@ -107,12 +108,13 @@ const SubmitForm = (e) => {
     )
     setData("")
 }
-
+    
     return (
         <div>
-            <form onSubmit = {SubmitForm}>
+            <h1 className = "h1"> Todo List</h1>
+            <form onSubmit = {SubmitForm}  className ="align">
                 <input onChange = {ChangeForm} value = {data}></input>
-                <button>Add</button>
+                <button className ="align2">Add</button>
             </form>
         </div>
     )

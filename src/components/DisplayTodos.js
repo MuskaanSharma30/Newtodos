@@ -36,12 +36,12 @@ const DisplayTodos = ({task,Delete,Toggle}) => {
  
 
     return (
-        <div>
+        <div className = "dec">
            
-            <div style = {{textDecoration : task.status?"line-through":""}}>{task.work}</div>
-            <button onClick = {() => Toggle(task.id)}>Comp</button>
+            <div style = {{textDecoration : task.status?"line-through":""}} className = "task">{task.work}</div>
+            <div className = "right"><button onClick = {() => Toggle(task.id)} className = "comp">Done</button>
             {/* <button onClick = {RemoveTodo}>Del</button>  */}
-             <button onClick = {() => Delete(task.id)}>Del</button>
+             <button onClick = {() => Delete(task.id)} className = "del">X</button></div>
         </div>
     )
 }
